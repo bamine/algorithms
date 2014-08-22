@@ -3,7 +3,7 @@ package sorting;
 public class Main {
 
     public static void main(String[] args) {
-	    int[] A=range(1,10000);
+	    int[] A=range(1,20000);
         long startTime;
         long duration;
 
@@ -23,6 +23,17 @@ public class Main {
         SelectionSorter.sort(A);
         duration=System.nanoTime()-startTime;
         System.out.println("Selection sort :");
+        for(int i:A){
+            System.out.print(i+" ");
+        }
+        System.out.println("\n");
+        System.out.println("Took "+duration+"\n");
+
+        FisherYatesShuffler.shuffleArray(A);
+        startTime=System.nanoTime();
+        MergeSorter.sort(A,1,A.length);
+        duration=System.nanoTime()-startTime;
+        System.out.println("Merge sort :");
         for(int i:A){
             System.out.print(i+" ");
         }
