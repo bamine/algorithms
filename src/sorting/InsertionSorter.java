@@ -4,7 +4,7 @@ package sorting;
  * Created by amine on 22/08/14.
  */
 public class InsertionSorter {
-    public static void InsertionSort(int[] A){
+    public static void sort(int[] A){
         int key;
         int i;
         for(int j=1;j<A.length;j++){
@@ -18,7 +18,7 @@ public class InsertionSorter {
         }
     }
 
-    public static void InsertionSortReverse(int[] A){
+    public static void sortReverse(int[] A){
         int key;
         int i;
         for(int j=1;j<A.length;j++){
