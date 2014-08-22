@@ -3,17 +3,39 @@ package sorting;
 public class Main {
 
     public static void main(String[] args) {
-	    int[] A={10,1,3,4,5,9,8,2,1,7};
-        InsertionSorter.InsertionSort(A);
+	    int[] A=range(1,10000);
+        long startTime;
+        long duration;
+
+        FisherYatesShuffler.shuffleArray(A);
+        startTime=System.nanoTime();
+        InsertionSorter.sort(A);
+        duration=System.nanoTime()-startTime;
+        System.out.println("Insertion sort :");
         for(int i:A){
             System.out.print(i+" ");
         }
         System.out.println("\n");
-        int[] B={10,1,3,4,5,9,8,2,1,7};
-        InsertionSorter.InsertionSortReverse(B);
-        for(int i:B){
+        System.out.println("Took "+duration+"\n");
+
+        FisherYatesShuffler.shuffleArray(A);
+        startTime=System.nanoTime();
+        SelectionSorter.sort(A);
+        duration=System.nanoTime()-startTime;
+        System.out.println("Selection sort :");
+        for(int i:A){
             System.out.print(i+" ");
         }
+        System.out.println("\n");
+        System.out.println("Took "+duration+"\n");
 
+    }
+
+    public static int[] range(int start,int stop){
+        int[] a=new int[stop-start];
+        for(int i=0;i<stop-start;i++){
+            a[i]=start+i;
+        }
+        return a;
     }
 }
