@@ -67,7 +67,7 @@ public class MergeSorter {
         i=0;
         j=0;
         for(int k=p-1;k<r;k++){
-            if(j==R.length || L[i]<=R[j]){
+            if(i<L.length && (j==R.length || L[i]<=R[j])){
                 A[k]=L[i];
                 i++;
             }
