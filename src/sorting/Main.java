@@ -3,9 +3,14 @@ package sorting;
 public class Main {
 
     public static void main(String[] args) {
-	    int[] A=range(1,20000);
+	    int[] A=range(1,2000);
         long startTime;
         long duration;
+
+        startTime=System.nanoTime();
+        BinarySearcher.search(578,A);
+        duration=System.nanoTime()-startTime;
+        System.out.println("Took "+duration+"\n");
 
         FisherYatesShuffler.shuffleArray(A);
         startTime=System.nanoTime();
@@ -34,6 +39,17 @@ public class Main {
         MergeSorter.sort(A,1,A.length);
         duration=System.nanoTime()-startTime;
         System.out.println("Merge sort :");
+        for(int i:A){
+            System.out.print(i+" ");
+        }
+        System.out.println("\n");
+        System.out.println("Took "+duration+"\n");
+
+        FisherYatesShuffler.shuffleArray(A);
+        startTime=System.nanoTime();
+        MergeSorter.sortWithoutSentinels(A,1,A.length);
+        duration=System.nanoTime()-startTime;
+        System.out.println("Merge sort without sentinels :");
         for(int i:A){
             System.out.print(i+" ");
         }
