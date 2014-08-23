@@ -78,6 +78,9 @@ public class Main {
         System.out.println("\n");
         System.out.println("Took " + duration + "\n");
 
+        int[] B = {1, 2, 5, 3, 4, 6, 7, 8, 9};
+        System.out.println("Number of inversions of B " + InversionCounter.count(B, 1, B.length));
+
     }
 
     public static int[] range(int start,int stop){
