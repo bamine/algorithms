@@ -18,6 +18,22 @@ public class InsertionSorter {
         }
     }
 
+    public static void sortRecursive(int[] A,int last){
+        if(last>0) {
+            sortRecursive(A, last - 1);
+            int pos = last - 1;
+            while (pos >= 0 && A[last] <= A[pos]) {
+                pos--;
+            }
+            pos++;
+            int temp = A[last];
+            for (int i = last - 1; i >= pos; i--) {
+                A[i + 1] = A[i];
+            }
+            A[pos] = temp;
+        }
+    }
+
     public static void sortReverse(int[] A){
         int key;
         int i;
