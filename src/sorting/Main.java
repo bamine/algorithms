@@ -47,7 +47,7 @@ public class Main {
 
         FisherYatesShuffler.shuffleArray(A);
         startTime=System.nanoTime();
-        MergeSorter.sortWithoutSentinels(A,1,A.length);
+        MergeSorter.sortWithoutSentinels(A, 1, A.length);
         duration=System.nanoTime()-startTime;
         System.out.println("Merge sort without sentinels :");
         for(int i:A){
@@ -58,7 +58,7 @@ public class Main {
 
         FisherYatesShuffler.shuffleArray(A);
         startTime=System.nanoTime();
-        InsertionSorter.sortRecursive(A,A.length-1);
+        InsertionSorter.sortRecursive(A, A.length - 1);
         duration=System.nanoTime()-startTime;
         System.out.println("Insertion sort recursive version :");
         for(int i:A){
@@ -66,6 +66,17 @@ public class Main {
         }
         System.out.println("\n");
         System.out.println("Took "+duration+"\n");
+
+        FisherYatesShuffler.shuffleArray(A);
+        startTime = System.nanoTime();
+        BubbleSorter.sort(A);
+        duration = System.nanoTime() - startTime;
+        System.out.println("Bubble sort :");
+        for (int i : A) {
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+        System.out.println("Took " + duration + "\n");
 
     }
 
