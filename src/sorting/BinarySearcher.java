@@ -2,6 +2,7 @@ package sorting;
 
 /**
  * Created by amine on 23/08/14.
+ * Examples from the book Introduction to Algorithms 3rd edition
  */
 public class BinarySearcher {
     public static int search(int a,int[] sortedArray){
@@ -14,7 +15,7 @@ public class BinarySearcher {
         }
         int middle=start+(stop-start)/2;
         if(a<sortedArray[middle]){
-            return binarySearch(a,sortedArray,start,middle);
+            return binarySearch(a, sortedArray, start, middle - 1);
         }
         else if(a>sortedArray[middle]){
             return binarySearch(a,sortedArray,middle+1,stop);
