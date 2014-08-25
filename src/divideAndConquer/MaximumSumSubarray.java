@@ -10,7 +10,7 @@ import java.util.HashMap;
  * To change this template use File | Settings | File Templates.
  */
 public class MaximumSumSubarray {
-    public HashMap<String,Integer> find(int[] A,int low,int high){
+    public static HashMap<String, Integer> find(int[] A, int low, int high) {
         if(high==low){
             HashMap<String,Integer> sa=new HashMap<String, Integer>();
             sa.put("maxLeft",low);
@@ -38,13 +38,14 @@ public class MaximumSumSubarray {
             }
         }
     }
-    public HashMap<String,Integer> findMaxCrossingSubarray(int[] A,int low,int mid,int high){
+
+    public static HashMap<String, Integer> findMaxCrossingSubarray(int[] A, int low, int mid, int high) {
         int leftSum=-Integer.MAX_VALUE;
         int sum=0;
         int maxLeft=-1;
         int maxRight=-1;
         for(int i=mid;i>=low;i--){
-            sum+=sum+A[i];
+            sum += A[i];
             if(sum>leftSum){
                 leftSum=sum;
                 maxLeft=i;
@@ -54,7 +55,7 @@ public class MaximumSumSubarray {
         int rightSum=-Integer.MAX_VALUE;
         sum=0;
         for(int j=mid+1;j<=high;j++){
-            sum+=sum+A[j];
+            sum += A[j];
             if(sum>rightSum){
                 rightSum=sum;
                 maxRight=j;
