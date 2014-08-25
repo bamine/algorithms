@@ -67,5 +67,29 @@ public class MaximumSumSubarray {
         maxCrossingSubarray.put("sum",leftSum+rightSum);
         return maxCrossingSubarray;
     }
+
+    public static HashMap<String, Integer> findBruteForce(int[] A) {
+        int sum;
+        int maxSum = 0;
+        int maxLeft = 0;
+        int maxRight = 0;
+        for (int i = 0; i < A.length - 1; i++) {
+            sum = 0;
+            for (int j = i; j < A.length; j++) {
+                sum += A[j];
+                if (sum >= maxSum) {
+                    maxLeft = i;
+                    maxRight = j;
+                    maxSum = sum;
+                }
+
+            }
+        }
+        HashMap<String, Integer> maxSubarray = new HashMap<String, Integer>();
+        maxSubarray.put("maxLeft", maxLeft);
+        maxSubarray.put("maxRight", maxRight);
+        maxSubarray.put("sum", maxSum);
+        return maxSubarray;
+    }
 }
 
