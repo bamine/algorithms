@@ -1,5 +1,7 @@
 package randomized;
 
+import java.util.ArrayList;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Amine
@@ -20,6 +22,18 @@ public class Main {
         int[] C={1,2,3,4,5,6,7,8,9};
         C=ArrayRandomizer.permuteByCyclic(C);
         printList(C);
+
+        int m=10;
+        int n=100;
+        ArrayList<Integer> S=ArrayRandomizer.randomSample(m,n);
+        printList(S.toArray(new Integer[10]));
+    }
+
+    private static void printList(Integer[] a) {
+        for(int i: a){
+            System.out.print(i+" ");
+        }
+        System.out.println("\n");
     }
 
     private static void printList(int[] a) {

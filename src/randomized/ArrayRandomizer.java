@@ -1,5 +1,7 @@
 package randomized;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -47,6 +49,25 @@ public class ArrayRandomizer {
             B[dest]=A[i];
         }
         return B;
+    }
+
+    public static ArrayList<Integer> randomSample(int m,int n){
+        Random rnd=new Random();
+        if(m==0){
+            return new ArrayList<Integer>();
+        }
+        else{
+            ArrayList<Integer> S=randomSample(m-1,n-1);
+            int i=rnd.nextInt(n);
+            if(S.contains(i)){
+                S.add(n-1);
+            }
+            else{
+                S.add(i);
+            }
+            return S;
+        }
+
     }
 
     private static void sortUsingArray(int[] a, int[] p) {
