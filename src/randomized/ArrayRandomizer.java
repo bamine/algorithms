@@ -33,6 +33,22 @@ public class ArrayRandomizer {
         }
     }
 
+    public static int[] permuteByCyclic(int[] A){
+        Random rnd=new Random();
+        int n=A.length;
+        int[] B=new int[n];
+        int offset=rnd.nextInt(n-1);
+        int dest;
+        for(int i=0;i<n;i++){
+            dest=i+offset;
+            if(dest>n-1){
+                dest=dest-n;
+            }
+            B[dest]=A[i];
+        }
+        return B;
+    }
+
     private static void sortUsingArray(int[] a, int[] p) {
         int key;
         int key2;
