@@ -8,7 +8,7 @@ public class heapUtil {
 
     public static heap buildMaxHeap(int[] A) {
         heap maxHeap = new heap(A);
-        for (int i = maxHeap.getLength() / 2 - 1; i >= 0; i--) {
+        for (int i = (maxHeap.getLength() / 2) - 1; i >= 0; i--) {
             maxHeapify(maxHeap, i);
         }
         return maxHeap;
@@ -17,12 +17,12 @@ public class heapUtil {
         int l = left(i);
         int r = right(i);
         int largest;
-        if (l <= A.getHeapsize() && A.get(l) > A.get(i)) {
+        if (l <= A.getHeapsize() - 1 && A.get(l) > A.get(i)) {
             largest = l;
         } else {
             largest = i;
         }
-        if (r <= A.getHeapsize() && A.get(r) > A.get(largest)) {
+        if (r <= A.getHeapsize() - 1 && A.get(r) > A.get(largest)) {
             largest = r;
         }
         if (largest != i) {

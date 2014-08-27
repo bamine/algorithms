@@ -6,7 +6,7 @@ package dataStructures;
  */
 public class Main {
     public static void main(String[] args) {
-        int[] A = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] A = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
         heap H = heapUtil.buildMaxHeap(A);
         H.display();
     }
