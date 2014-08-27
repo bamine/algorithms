@@ -2,6 +2,7 @@ package sorting;
 
 /**
  * Created by amine on 22/08/14.
+ * Examples from the book Introduction to Algorithms 3rd edition
  */
 public class InsertionSorter {
     public static void sort(int[] A){

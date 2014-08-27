@@ -3,11 +3,8 @@ package divideAndConquer;
 import java.util.HashMap;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Amine
- * Date: 25/08/14
- * Time: 16:09
- * To change this template use File | Settings | File Templates.
+ * Created by amine on 23/08/14.
+ * Examples from the book Introduction to Algorithms 3rd edition
  */
 public class MaximumSumSubarray {
     public static HashMap<String, Integer> find(int[] A, int low, int high) {

@@ -3,11 +3,8 @@ package randomized;
 import java.util.ArrayList;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Amine
- * Date: 27/08/14
- * Time: 11:28
- * To change this template use File | Settings | File Templates.
+ * Created by amine on 23/08/14.
+ * Examples from the book Introduction to Algorithms 3rd edition
  */
 public class Main {
     public static void main(String[] args){

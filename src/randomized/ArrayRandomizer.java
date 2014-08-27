@@ -1,15 +1,11 @@
 package randomized;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Amine
- * Date: 27/08/14
- * Time: 11:20
- * To change this template use File | Settings | File Templates.
+ * Created by amine on 23/08/14.
+ * Examples from the book Introduction to Algorithms 3rd edition
  */
 public class ArrayRandomizer {
     public static void permuteBySorting(int[] A){
