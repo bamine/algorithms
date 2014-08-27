@@ -8,12 +8,27 @@ public class heap {
     private int[] A;
     private int heapsize;
 
+    public heap(int[] A) {
+        this.A = A;
+        this.heapsize = A.length;
+    }
+
+    public int getLength() {
+        return A.length;
+    }
     public int getHeapsize() {
         return heapsize;
     }
 
     public int get(int i) {
         return A[i];
+    }
+
+    public void display() {
+        for (int i = 0; i < A.length; i++) {
+            System.out.print(A[i] + " ");
+        }
+        System.out.println(" ");
     }
 
     public void swap(int i, int j) {
@@ -23,11 +38,11 @@ public class heap {
     }
 
     public int left(int i) {
-        return 2 * i;
+        return 2 * i + 1;
     }
 
     public int right(int i) {
-        return 2 * i + 1;
+        return 2 * i + 2;
     }
 
     public int parent(int i) {

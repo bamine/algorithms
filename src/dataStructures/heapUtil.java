@@ -5,6 +5,14 @@ package dataStructures;
  * Examples from the book Introduction to Algorithms 3rd edition
  */
 public class heapUtil {
+
+    public static heap buildMaxHeap(int[] A) {
+        heap maxHeap = new heap(A);
+        for (int i = maxHeap.getLength() / 2 - 1; i >= 0; i--) {
+            maxHeapify(maxHeap, i);
+        }
+        return maxHeap;
+    }
     public static void maxHeapify(heap A, int i) {
         int l = left(i);
         int r = right(i);
@@ -24,11 +32,11 @@ public class heapUtil {
     }
 
     public static int left(int i) {
-        return 2 * i;
+        return 2 * i + 1;
     }
 
     public static int right(int i) {
-        return 2 * i + 1;
+        return 2 * i + 2;
     }
 
     public static int parent(int i) {
