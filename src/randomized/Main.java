@@ -12,6 +12,9 @@ public class Main {
         int[] A={1,2,3,4,5,6,7,8,9};
         ArrayRandomizer.permuteBySorting(A);
         printList(A);
+        int[] B={1,2,3,4,5,6,7,8,9};
+        ArrayRandomizer.randomizeInPlace(B);
+        printList(B);
     }
 
     private static void printList(int[] a) {

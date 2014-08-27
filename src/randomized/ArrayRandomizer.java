@@ -20,6 +20,19 @@ public class ArrayRandomizer {
         sortUsingArray(A,P);
     }
 
+    public static void randomizeInPlace(int[] A){
+        Random rnd=new Random();
+        int n=A.length;
+        int temp;
+        int j;
+        for(int i=0;i<n;i++){
+            j=i+rnd.nextInt(n-i);
+            temp=A[i];
+            A[i]=A[j];
+            A[j]=temp;
+        }
+    }
+
     private static void sortUsingArray(int[] a, int[] p) {
         int key;
         int key2;
