@@ -13,6 +13,14 @@ public class heapUtil {
         }
         return maxHeap;
     }
+
+    public static heap buildMinHeap(int[] A) {
+        heap maxHeap = new heap(A);
+        for (int i = (maxHeap.getLength() / 2) - 1; i >= 0; i--) {
+            minHeapify(maxHeap, i);
+        }
+        return maxHeap;
+    }
     public static void maxHeapify(heap A, int i) {
         int l = left(i);
         int r = right(i);
@@ -28,6 +36,24 @@ public class heapUtil {
         if (largest != i) {
             A.swap(i, largest);
             maxHeapify(A, largest);
+        }
+    }
+
+    public static void minHeapify(heap A, int i) {
+        int l = left(i);
+        int r = right(i);
+        int smallest;
+        if (l <= A.getHeapsize() - 1 && A.get(l) < A.get(i)) {
+            smallest = l;
+        } else {
+            smallest = i;
+        }
+        if (r <= A.getHeapsize() - 1 && A.get(r) < A.get(smallest)) {
+            smallest = r;
+        }
+        if (smallest != i) {
+            A.swap(i, smallest);
+            minHeapify(A, smallest);
         }
     }
 
