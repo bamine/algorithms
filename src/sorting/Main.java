@@ -53,6 +53,14 @@ public class Main {
         System.out.println("Took "+duration+"\n");
 
         FisherYatesShuffler.shuffleArray(A);
+        startTime=System.nanoTime();
+        HeapSorter.sort(A);
+        duration=System.nanoTime()-startTime;
+        System.out.println("Heap sort :");
+        printList(A);
+        System.out.println("Took "+duration+"\n");
+
+        FisherYatesShuffler.shuffleArray(A);
         startTime = System.nanoTime();
         BubbleSorter.sort(A);
         duration = System.nanoTime() - startTime;

@@ -19,6 +19,13 @@ public class heap {
     public int getHeapsize() {
         return heapsize;
     }
+    public void setHeapsize(int newHeapSize) {
+        heapsize=newHeapSize;
+    }
+
+    public int[] getArray(){
+        return A;
+    }
 
     public int get(int i) {
         return A[i];
