@@ -16,5 +16,9 @@ public class Main {
 
         heap I = heapUtil.buildMaxHeapInsert(B);
         I.display();
+
+        ternaryHeap T = heapUtil.buildMaxTernaryHeap(B);
+        T.display();
+        System.out.println(T.heapExtractMax());
     }
 }

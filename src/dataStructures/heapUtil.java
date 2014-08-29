@@ -14,6 +14,14 @@ public class heapUtil {
         return maxHeap;
     }
 
+    public static ternaryHeap buildMaxTernaryHeap(int[] A) {
+        ternaryHeap maxHeap = new ternaryHeap(A);
+        for (int i = ((2 * maxHeap.getLength()) / 3) - 1; i >= 0; i--) {
+            maxHeapifyTernary(maxHeap, i);
+        }
+        return maxHeap;
+    }
+
     public static heap buildMaxHeapInsert(int[] A) {
         int[] empty = new int[1];
         empty[0] = A[0];
@@ -50,6 +58,27 @@ public class heapUtil {
         }
     }
 
+    public static void maxHeapifyTernary(ternaryHeap A, int i) {
+        int l = leftTernary(i);
+        int r = rightTernary(i);
+        int m = middleTernary(i);
+        int largest;
+        if (l <= A.getHeapsize() - 1 && A.get(l) > A.get(i)) {
+            largest = l;
+        } else if (m <= A.getHeapsize() - 1 && A.get(m) > A.get(i)) {
+            largest = m;
+        } else {
+            largest = i;
+        }
+        if (r <= A.getHeapsize() - 1 && A.get(r) > A.get(largest)) {
+            largest = r;
+        }
+        if (largest != i) {
+            A.swap(i, largest);
+            maxHeapifyTernary(A, largest);
+        }
+    }
+
     public static void minHeapify(heap A, int i) {
         int l = left(i);
         int r = right(i);
@@ -76,7 +105,15 @@ public class heapUtil {
         return 2 * i + 2;
     }
 
-    public static int parent(int i) {
-        return (i - 1) / 2;
+    public static int leftTernary(int i) {
+        return 3 * i + 1;
+    }
+
+    public static int rightTernary(int i) {
+        return 3 * i + 2;
+    }
+
+    public static int middleTernary(int i) {
+        return 3 * i + 2;
     }
 }
