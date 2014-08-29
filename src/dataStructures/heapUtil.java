@@ -14,6 +14,17 @@ public class heapUtil {
         return maxHeap;
     }
 
+    public static heap buildMaxHeapInsert(int[] A) {
+        int[] empty = new int[1];
+        empty[0] = A[0];
+        heap H = new heap(empty);
+        H.setHeapsize(1);
+        for (int i = 1; i < A.length; i++) {
+            H.maxHeapInsert(A[i]);
+        }
+        return H;
+    }
+
     public static heap buildMinHeap(int[] A) {
         heap maxHeap = new heap(A);
         for (int i = (maxHeap.getLength() / 2) - 1; i >= 0; i--) {
@@ -66,6 +77,6 @@ public class heapUtil {
     }
 
     public static int parent(int i) {
-        return i / 2;
+        return (i - 1) / 2;
     }
 }

@@ -68,7 +68,7 @@ public class heap {
         }
         B[heapsize-1]=-Integer.MAX_VALUE;
         A=B;
-        heapIncreaseKey(heapsize,key);
+        heapIncreaseKey(heapsize - 1, key);
     }
 
     public void heapIncreaseKey(int i,int key){
@@ -76,7 +76,7 @@ public class heap {
             System.out.println("error : new key is smaller than current key. Nothing changed");
         }
         A[i]=key;
-        while(i>1 && A[parent(i)]<A[i]){
+        while (i > 0 && A[parent(i)] < A[i]) {
             swap(i,parent(i));
             i=parent(i);
         }
@@ -91,6 +91,6 @@ public class heap {
     }
 
     public int parent(int i) {
-        return i / 2;
+        return (i - 1) / 2;
     }
 }
