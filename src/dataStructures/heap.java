@@ -44,6 +44,44 @@ public class heap {
         A[j] = temp;
     }
 
+    public int heapMaximum(){
+        return A[0];
+    }
+
+    public int heapExtractMax(){
+        if(heapsize<1){
+            System.out.println("heap underflow");
+            return -Integer.MAX_VALUE;
+        }
+        int max=A[0];
+        A[0]=A[heapsize-1];
+        heapsize=heapsize-1;
+        heapUtil.maxHeapify(this,0);
+        return max;
+    }
+
+    public void maxHeapInsert(int key){
+        heapsize+=1;
+        int[] B=new int[heapsize];
+        for(int i=0;i<heapsize-1;i++){
+            B[i]=A[i];
+        }
+        B[heapsize-1]=-Integer.MAX_VALUE;
+        A=B;
+        heapIncreaseKey(heapsize,key);
+    }
+
+    public void heapIncreaseKey(int i,int key){
+        if(key<A[i]){
+            System.out.println("error : new key is smaller than current key. Nothing changed");
+        }
+        A[i]=key;
+        while(i>1 && A[parent(i)]<A[i]){
+            swap(i,parent(i));
+            i=parent(i);
+        }
+    }
+
     public int left(int i) {
         return 2 * i + 1;
     }
