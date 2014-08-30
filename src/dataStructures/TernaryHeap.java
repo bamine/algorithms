@@ -4,11 +4,11 @@ package dataStructures;
  * Created by amine on 29/08/14.
  * Examples from the book Introduction to Algorithms 3rd edition
  */
-public class ternaryHeap {
+public class TernaryHeap {
     private int[] A;
     private int heapsize;
 
-    public ternaryHeap(int[] A) {
+    public TernaryHeap(int[] A) {
         this.A = A;
         this.heapsize = A.length;
     }
@@ -34,8 +34,8 @@ public class ternaryHeap {
     }
 
     public void display() {
-        for (int i = 0; i < A.length; i++) {
-            System.out.print(A[i] + " ");
+        for (int aA : A) {
+            System.out.print(aA + " ");
         }
         System.out.println(" ");
     }
@@ -58,16 +58,14 @@ public class ternaryHeap {
         int max = A[0];
         A[0] = A[heapsize - 1];
         heapsize = heapsize - 1;
-        heapUtil.maxHeapifyTernary(this, 0);
+        HeapHelper.maxHeapifyTernary(this, 0);
         return max;
     }
 
     public void maxHeapInsert(int key) {
         heapsize += 1;
         int[] B = new int[heapsize];
-        for (int i = 0; i < heapsize - 1; i++) {
-            B[i] = A[i];
-        }
+        System.arraycopy(A, 0, B, 0, heapsize - 1);
         B[heapsize - 1] = -Integer.MAX_VALUE;
         A = B;
         heapIncreaseKey(heapsize - 1, key);

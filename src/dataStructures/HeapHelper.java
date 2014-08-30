@@ -4,28 +4,28 @@ package dataStructures;
  * Created by amine on 28/08/14.
  * Examples from the book Introduction to Algorithms 3rd edition
  */
-public class heapUtil {
+public class HeapHelper {
 
-    public static heap buildMaxHeap(int[] A) {
-        heap maxHeap = new heap(A);
+    public static Heap buildMaxHeap(int[] A) {
+        Heap maxHeap = new Heap(A);
         for (int i = (maxHeap.getLength() / 2) - 1; i >= 0; i--) {
             maxHeapify(maxHeap, i);
         }
         return maxHeap;
     }
 
-    public static ternaryHeap buildMaxTernaryHeap(int[] A) {
-        ternaryHeap maxHeap = new ternaryHeap(A);
+    public static TernaryHeap buildMaxTernaryHeap(int[] A) {
+        TernaryHeap maxHeap = new TernaryHeap(A);
         for (int i = ((2 * maxHeap.getLength()) / 3) - 1; i >= 0; i--) {
             maxHeapifyTernary(maxHeap, i);
         }
         return maxHeap;
     }
 
-    public static heap buildMaxHeapInsert(int[] A) {
+    public static Heap buildMaxHeapInsert(int[] A) {
         int[] empty = new int[1];
         empty[0] = A[0];
-        heap H = new heap(empty);
+        Heap H = new Heap(empty);
         H.setHeapsize(1);
         for (int i = 1; i < A.length; i++) {
             H.maxHeapInsert(A[i]);
@@ -33,14 +33,15 @@ public class heapUtil {
         return H;
     }
 
-    public static heap buildMinHeap(int[] A) {
-        heap maxHeap = new heap(A);
+    public static Heap buildMinHeap(int[] A) {
+        Heap maxHeap = new Heap(A);
         for (int i = (maxHeap.getLength() / 2) - 1; i >= 0; i--) {
             minHeapify(maxHeap, i);
         }
         return maxHeap;
     }
-    public static void maxHeapify(heap A, int i) {
+
+    public static void maxHeapify(Heap A, int i) {
         int l = left(i);
         int r = right(i);
         int largest;
@@ -58,7 +59,7 @@ public class heapUtil {
         }
     }
 
-    public static void maxHeapifyTernary(ternaryHeap A, int i) {
+    public static void maxHeapifyTernary(TernaryHeap A, int i) {
         int l = leftTernary(i);
         int r = rightTernary(i);
         int m = middleTernary(i);
@@ -79,7 +80,7 @@ public class heapUtil {
         }
     }
 
-    public static void minHeapify(heap A, int i) {
+    public static void minHeapify(Heap A, int i) {
         int l = left(i);
         int r = right(i);
         int smallest;
