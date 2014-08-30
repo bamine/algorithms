@@ -1,5 +1,7 @@
 package sorting;
 
+import java.util.Random;
+
 /**
  * Created by amine on 30/08/14.
  * Examples from the book Introduction to Algorithms 3rd edition
@@ -12,6 +14,21 @@ public class QuickSorter {
             sort(A, q + 1, r);
         }
 
+    }
+
+    public static void randomizedSort(int[] A, int p, int r) {
+        if (p < r) {
+            int q = randomizedPartition(A, p, r);
+            randomizedSort(A, p, q - 1);
+            randomizedSort(A, q + 1, r);
+        }
+    }
+
+    private static int randomizedPartition(int[] A, int p, int r) {
+        Random rnd = new Random();
+        int i = p + rnd.nextInt(r + 1 - p);
+        swap(A, i, r);
+        return partition(A, p, r);
     }
 
     private static int partition(int[] A, int p, int r) {

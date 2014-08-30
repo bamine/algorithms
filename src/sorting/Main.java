@@ -76,6 +76,14 @@ public class Main {
         printList(A);
         System.out.println("Took " + duration + "\n");
 
+        FisherYatesShuffler.shuffleArray(A);
+        startTime = System.nanoTime();
+        QuickSorter.randomizedSort(A, 0, A.length - 1);
+        duration = System.nanoTime() - startTime;
+        System.out.println("Randomized Quick sort :");
+        printList(A);
+        System.out.println("Took " + duration + "\n");
+
     }
 
     private static void printList(int[] a) {
