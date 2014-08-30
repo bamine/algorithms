@@ -3,7 +3,7 @@ package sorting;
 public class Main {
 
     public static void main(String[] args) {
-	    int[] A=range(1,100);
+        int[] A = range(1, 1000);
         long startTime;
         long duration;
 
@@ -68,8 +68,13 @@ public class Main {
         printList(A);
         System.out.println("Took " + duration + "\n");
 
-        int[] B = {1, 2, 5, 3, 4, 6, 7, 8, 9};
-        System.out.println("Number of inversions of B " + InversionCounter.count(B, 1, B.length));
+        FisherYatesShuffler.shuffleArray(A);
+        startTime = System.nanoTime();
+        QuickSorter.sort(A, 0, A.length - 1);
+        duration = System.nanoTime() - startTime;
+        System.out.println("Quick sort :");
+        printList(A);
+        System.out.println("Took " + duration + "\n");
 
     }
 
