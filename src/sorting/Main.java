@@ -84,6 +84,14 @@ public class Main {
         printList(A);
         System.out.println("Took " + duration + "\n");
 
+        FisherYatesShuffler.shuffleArray(A);
+        startTime = System.nanoTime();
+        int[] B=CountingSorter.sort(A,1000);
+        duration = System.nanoTime() - startTime;
+        System.out.println("Counting sort :");
+        printList(B);
+        System.out.println("Took " + duration + "\n");
+
     }
 
     private static void printList(int[] a) {
