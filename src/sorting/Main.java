@@ -92,6 +92,14 @@ public class Main {
         printList(B);
         System.out.println("Took " + duration + "\n");
 
+        FisherYatesShuffler.shuffleArray(A);
+        startTime = System.nanoTime();
+        int[] R=RadixSorter.sort(A,3);
+        duration = System.nanoTime() - startTime;
+        System.out.println("Radix sort :");
+        printList(R);
+        System.out.println("Took " + duration + "\n");
+
     }
 
     private static void printList(int[] a) {
